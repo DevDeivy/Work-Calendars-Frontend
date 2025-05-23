@@ -1,3 +1,3 @@
 export const rutes = {
-    get: ''
+    Url: '',   
 }
