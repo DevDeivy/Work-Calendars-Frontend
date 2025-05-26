@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { rutes } from './rout';
+import { rutes } from './routApi';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -33,6 +33,5 @@ export class FestivosServiceService {
 
   PatchFestivo(Festivo: any): Observable<any>{
     return this.http.patch(`${this.rout}/`, Festivo)
-  }      
-  
+  }        
 }
