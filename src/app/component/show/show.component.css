@@ -1,0 +1,99 @@
+.wrapper{
+    display: grid;
+    place-content: center;
+    height: 100vh;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: auto;
+    padding: 1rem 0;
+    width: 70rem;
+    background-color: #bbb;
+}
+
+.blank{
+    background-color: white;
+}
+
+.box_section{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: crimson;
+    margin-bottom: 2rem;
+}
+
+.buttons a{
+    border-radius: .6rem;
+    padding: .8rem;
+    text-align: center;
+    margin-left: .5rem;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+    font-weight: 500;
+}
+
+.buttons a:nth-child(1){
+    background-color: rgb(233, 127, 127);
+}
+
+.buttons a:nth-child(1):hover{
+    background-color: rgb(211, 106, 106);
+}
+
+.buttons a:nth-child(2){
+    background-color: rgb(164, 164, 236);
+}   
+
+.buttons a:nth-child(2):hover{
+    background-color: rgb(142, 142, 219);
+}
+
+.buttons a:nth-child(3){
+    background-color: rgb(142, 230, 142);
+}
+
+.buttons a:nth-child(3):hover{
+    background-color: rgb(121, 209, 121);
+}
+
+.buttons a:nth-child(4){
+    background-color: rgb(233, 233, 152);
+}   
+
+.buttons a:nth-child(4):hover{
+    background-color: rgb(211, 211, 131);
+}
+
+.buttons a:nth-child(5){
+    background-color: rgb(208, 126, 208);
+}
+
+.buttons a:nth-child(5):hover{
+    background-color: rgb(187, 106, 187);
+}
+
+.box_section-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttons{
+    display: flex;
+    width: 50%;
+}
+
+h4{
+    width: 50%;
+    text-align: center;
+}
+
+.line{
+    background-color: black;
+    width: 100%;
+    height: .1rem;
+}
