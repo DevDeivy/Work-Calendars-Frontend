@@ -1,3 +1,3 @@
 export const rutes = {
-    Url: '',   
+    Url: 'localhost:8080/api',   
 }
