@@ -13,9 +13,9 @@ import { FestivosServiceService } from '../../services/festivos-service.service'
 export class ReadComponent {
 
   entity!: string;
-  countryS!: 'country';
-  typeS!: 'type';
-  holiS!: 'holi';
+  countryS = 'country';
+  typeS = 'type';
+  holiS = 'holi';
 
   private _countryReadService = inject(CountryService)
   private _typeReadService = inject(TypeService)
@@ -28,7 +28,7 @@ export class ReadComponent {
     this.callService(this.entity)
   }
 
-  callService(entity: string){
+  callService(entity: string){  
     if(entity === this.countryS){
       this._countryReadService.GetPaises().subscribe(data => {
 

@@ -1,1 +1,31 @@
-<p>create works!</p>
+<div class="wrapper">
+    <h2>Create {{entity}}</h2>
+    <div *ngIf="entity === 'country'">
+        <form [formGroup]="country" class="form">
+            <input type="number" placeholder="Id" formControlName="id" class="input">
+            <input type="text" placeholder="Nombre" formControlName="nombre" class="input">
+            <button type="submit" [disabled]="!country.valid">Create {{entity}}</button>
+        </form>
+    </div>
+
+    <div *ngIf="entity === 'type'">
+        <form [formGroup]="type" class="form">
+            <input type="text" placeholder="Id" formControlName="id" class="input">
+            <input type="text" placeholder="tipo" formControlName="tipo" class="input">
+            <button type="submit" [disabled]="!type.valid">Create {{entity}}</button>
+        </form>
+    </div>
+
+    <div *ngIf="entity === 'holi'">
+        <form [formGroup]="holi" class="form">
+            <input type="number" placeholder="id" formControlName="id" class="input">
+            <input type="number" placeholder="idCountry" formControlName="idCountry" class="input">
+            <input type="number" placeholder="dia" formControlName="dia" class="input">
+            <input type="text" placeholder="nombre" formControlName="nombre" class="input">
+            <input type="number" placeholder="mes" formControlName="mes" class="input">
+            <input type="number" placeholder="diasPascua" formControlName="diasPascua" class="input">
+            <input type="number" placeholder="idTipo" formControlName="idTipo" class="input">
+            <button type="submit" [disabled]="!holi.valid">Create {{entity}}day</button>
+        </form>
+    </div>
+</div>
