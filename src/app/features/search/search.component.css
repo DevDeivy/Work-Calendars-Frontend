@@ -38,3 +38,8 @@ button{
 button[disabled]{
     background-color: #ccc;
 }
+
+.flex{
+    display: flex;
+    gap: 1.5rem; 
+}

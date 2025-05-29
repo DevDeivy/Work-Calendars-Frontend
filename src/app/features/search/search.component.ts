@@ -22,6 +22,12 @@ export class SearchComponent {
   country = new FormGroup({
     id: new FormControl('', Validators.required)
   })
+
+  country2 = new FormGroup({
+    nombre: new FormControl('', Validators.required)
+  })
+
+  
   type = new FormGroup({
     id: new FormControl('', Validators.required)
   })
@@ -33,6 +39,25 @@ export class SearchComponent {
 
   ngOnInit():void{
     this.entity = this.rout.snapshot.paramMap.get('entity')!;
+  }
+
+  byName(){
+    const nombre = String(this.country2.get('nombre')?.value);
+    if(this.entity === 'country'){
+      console.log('inject country')
+      this._countrySearchService.GetPaisName(nombre).subscribe(data =>{
+        
+      }, err => {
+        err
+        })
+      }else if(this.entity === 'holi'){
+      console.log('inject holi')
+        this._holiSearchService.BuscarFestivo(nombre).subscribe(data =>{
+        
+      }, err => {
+          err
+        })
+      }
   }
 
   injectService(entity: string){

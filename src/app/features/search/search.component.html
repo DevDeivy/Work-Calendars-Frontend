@@ -1,9 +1,13 @@
 <div class="wrapper">
     <h2>search {{entity}}</h2>
-    <div *ngIf="entity === 'country'">
+    <div *ngIf="entity === 'country'" class="flex">
         <form class="form" [formGroup]="country" (ngSubmit)="injectService(entity)">
             <input type="number" placeholder="Id" formControlName="id" class="input">
             <button type="submit" [disabled]="!country.valid">Search {{entity}}</button>
+        </form>
+        <form class="form" [formGroup]="country2" (ngSubmit)="byName()">
+            <input type="text" placeholder="Nombre" formControlName="nombre" class="input">
+            <button type="submit" [disabled]="!country2.valid">Search {{entity}}</button>
         </form>
     </div>
     <div *ngIf="entity === 'type'">
@@ -13,9 +17,15 @@
         </form>
     </div>
     <div *ngIf="entity === 'holi'">
-        <form class="form" [formGroup]="holi" (ngSubmit)="injectService(entity)">
-            <input type="text" placeholder="Id" formControlName="id" class="input">
-            <button type="submit" [disabled]="!holi.valid">Search {{entity}}day</button>
-        </form>
+        <div class="flex">
+            <form class="form" [formGroup]="holi" (ngSubmit)="injectService(entity)">
+                <input type="number" placeholder="Id" formControlName="id" class="input">
+                <button type="submit" [disabled]="!holi.valid">Search {{entity}}day</button>
+            </form>
+            <form class="form" [formGroup]="country2" (ngSubmit)="byName()">
+                <input type="text" placeholder="Nombre" formControlName="nombre" class="input">
+                <button type="submit" [disabled]="!country2.valid">Search {{entity}}</button>
+            </form>
+        </div>
     </div>
 </div>
