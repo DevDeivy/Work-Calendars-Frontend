@@ -1,1 +1,21 @@
-<p>delete works!</p>
+<div class="wrapper">
+    <h2>Delete {{entity}}</h2>
+    <div *ngIf="entity === 'country'">
+        <form class="form" [formGroup]="country" (ngSubmit)="injectService(entity)">
+            <input type="number" placeholder="Id" formControlName="id" class="input">
+            <button type="submit" [disabled]="!country.valid">Delete {{entity}}</button>
+        </form>
+    </div>
+    <div *ngIf="entity === 'type'">
+        <form class="form" [formGroup]="type" (ngSubmit)="injectService(entity)">
+            <input type="text" placeholder="Id" formControlName="id" class="input">
+            <button type="submit" [disabled]="!type.valid">Delete {{entity}}</button>
+        </form>
+    </div>
+    <div *ngIf="entity === 'holi'">
+        <form class="form" [formGroup]="holi" (ngSubmit)="injectService(entity)">
+            <input type="text" placeholder="Id" formControlName="id" class="input">
+            <button type="submit" [disabled]="!holi.valid">Delete {{entity}}day</button>
+        </form>
+    </div>
+</div>

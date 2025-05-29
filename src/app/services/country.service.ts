@@ -7,29 +7,33 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CountryService {
-  private rout: string = '';
+  private rout: string;
 
   constructor(private http: HttpClient) {
     this.rout = rutes.Url;
   }
 
   GetPaises(): Observable<any> {
-    return this.http.get(`${this.rout}/paises`);
+    return this.http.get(`${this.rout}/paises/listar`);
   }
 
   GetPais(id: number): Observable<any> {
-    return this.http.get(`${this.rout}/paises/${id}`);
+    return this.http.get(`${this.rout}/paises/obtener/${id}`);
   }
 
-  PostPais(Pais: any): Observable<any> {
-    return this.http.post(`${this.rout}/paises/`, Pais);
+  GetPaisName(nombre: string): Observable<any> {
+    return this.http.get(`${this.rout}/paises/buscar/${nombre}`);
+  }
+
+  PostPais(pais: any): Observable<any> {
+    return this.http.post(`${this.rout}/paises/agregar`, pais);
+  }
+
+  PutPais(pais: any): Observable<any> {
+    return this.http.put(`${this.rout}/paises/modificar`, pais);
   }
 
   DeletePais(id: number): Observable<any> {
-    return this.http.delete(`${this.rout}/paises/${id}`);
-  }
-
-  PatchPais(Pais: any): Observable<any> {
-    return this.http.patch(`${this.rout}/paises/`, Pais);
+    return this.http.delete(`${this.rout}/paises/eliminar/${id}`);
   }
 }

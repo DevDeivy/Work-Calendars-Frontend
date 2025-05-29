@@ -7,29 +7,33 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TypeService {
-  private rout: string = '';
+  private rout: string;
 
   constructor(private http: HttpClient) {
-    this.rout = rutes.Url;
+    this.rout = `${rutes.Url}/tipos`;
   }
 
   GetTipos(): Observable<any> {
-    return this.http.get(`${this.rout}/tipos`);
+    return this.http.get(`${this.rout}/listar`);
   }
 
   GetTipo(id: number): Observable<any> {
-    return this.http.get(`${this.rout}/tipos/${id}`);
+    return this.http.get(`${this.rout}/obtener/${id}`);
   }
 
-  PostTipo(Tipo: any): Observable<any> {
-    return this.http.post(`${this.rout}/tipos/`, Tipo);
+  BuscarTipo(nombre: string): Observable<any> {
+    return this.http.get(`${this.rout}/buscar/${nombre}`);
   }
 
-  DeleteTipo(id: number): Observable<any> {
-    return this.http.delete(`${this.rout}/tipos/${id}`);
+  AgregarTipo(tipo: any): Observable<any> {
+    return this.http.post(`${this.rout}/agregar`, tipo);
   }
 
-  PatchTipo(Tipo: any): Observable<any> {
-    return this.http.patch(`${this.rout}/tipos/`, Tipo);
+  ModificarTipo(tipo: any): Observable<any> {
+    return this.http.put(`${this.rout}/modificar`, tipo);
+  }
+
+  EliminarTipo(id: number): Observable<any> {
+    return this.http.delete(`${this.rout}/eliminar/${id}`);
   }
 }

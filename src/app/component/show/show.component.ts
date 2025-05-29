@@ -12,13 +12,34 @@ export class ShowComponent {
 
   constructor(private router: Router){}
 
-  read(entity: string){
-    if(entity === 'country'){
-      this.router.navigate([`/read/${entity}`])
-    }else if(entity === 'type'){
-      this.router.navigate([`/read/${entity}`])
-    } else if(entity === 'holi'){
-      this.router.navigate([`/read/${entity}`])
+  read(entity: string) {
+  const validEntities = ['country', 'type', 'holi'];
+    if (validEntities.includes(entity)) {
+      this.router.navigate([`/read/${entity}`]);
+    }
+  }
+  create(entity: string){
+    const validEntities = ['country', 'type', 'holi']
+    if(validEntities.includes(entity)){
+      this.router.navigate([`/create/${entity}`])
+    }
+  }
+  delete(entity: string){
+    const validEntities = ['country', 'type', 'holi']
+    if(validEntities.includes(entity)){
+      this.router.navigate([`/delete/${entity}`])
+    }
+  }
+  search(entity: string){
+    const validEntities = ['country', 'type', 'holi']
+    if(validEntities.includes(entity)){
+      this.router.navigate([`/search/${entity}`])
+    }
+  }
+  update(entity: string){
+    const validEntities = ['country', 'type', 'holi']
+    if(validEntities.includes(entity)){
+      this.router.navigate([`/update/${entity}`])
     }
   }
 

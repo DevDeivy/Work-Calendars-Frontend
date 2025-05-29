@@ -1,17 +1,18 @@
 import { Routes } from "@angular/router";
-import { CountryComponent } from "../component/country/country.component";
-import { TypeComponent } from "../component/type/type.component";
-import { HoliDayComponent } from "../component/holi-day/holi-day.component";
 import { ShowComponent } from "../component/show/show.component";
 import { ReadComponent } from "./read/read.component";
+import { CreateComponent } from "./create/create.component";
+import { SearchComponent } from "./search/search.component";
+import { UpdateComponent } from "./update/update.component";
+import { DeleteComponent } from "./delete/delete.component";
 
 export const rout: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'home', component: ShowComponent},
-    {path: 'country', component: CountryComponent},
     {path: 'read/:entity', component: ReadComponent},
-    {path: 'type', component: TypeComponent},
-    {path: 'holi', component: HoliDayComponent},
+    {path: 'create/:entity', component: CreateComponent },
+    {path: 'search/:entity', component: SearchComponent },
+    {path: 'update/:entity', component: UpdateComponent },
+    {path: 'delete/:entity', component: DeleteComponent },
     {path: '**', redirectTo: 'home', pathMatch: 'full'},
-
 ]

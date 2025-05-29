@@ -8,30 +8,41 @@ import { Observable } from 'rxjs';
 })
 export class FestivosServiceService {
 
-  public rout: string = '';
-
+  private rout: string;
 
   constructor(private http: HttpClient) {
-    this.rout = rutes.Url;
+    this.rout = `${rutes.Url}/festivos`;
   }
 
-  GetFestivos(): Observable<any>{
-    return this.http.get(`${this.rout}/`)
+  GetFestivos(): Observable<any> {
+    return this.http.get(`${this.rout}/listar`);
   }
 
-  GetFestivo(id: number): Observable<any>{
-    return this.http.get(`${this.rout}/${id}`)
+  GetFestivo(id: number): Observable<any> {
+    return this.http.get(`${this.rout}/obtener/${id}`);
   }
 
-  PostFestivo(Festivo: any): Observable<any>{
-    return this.http.post(`${this.rout}/`, Festivo)
+  BuscarFestivo(nombre: string): Observable<any> {
+    return this.http.get(`${this.rout}/buscar/${nombre}`);
   }
 
-  DeleteFestivo(id: number): Observable<any>{
-    return this.http.delete(`${this.rout}/${id}`)
+  AgregarFestivo(festivo: any): Observable<any> {
+    return this.http.post(`${this.rout}/agregar`, festivo);
   }
 
-  PatchFestivo(Festivo: any): Observable<any>{
-    return this.http.patch(`${this.rout}/`, Festivo)
-  }        
+  ModificarFestivo(festivo: any): Observable<any> {
+    return this.http.put(`${this.rout}/modificar`, festivo);
+  }
+
+  EliminarFestivo(id: number): Observable<any> {
+    return this.http.delete(`${this.rout}/eliminar/${id}`);
+  }
+
+  VerificarFestivo(idPais: number, anio: number, mes: number, dia: number): Observable<any> {
+    return this.http.get(`${this.rout}/verificar/${idPais}/${anio}/${mes}/${dia}`);
+  }
+
+  ListarFestivosPorPaisYAnio(idPais: number, anio: number): Observable<any> {
+    return this.http.get(`${this.rout}/listar/${idPais}/${anio}`);
+  }
 }
